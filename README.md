@@ -17,4 +17,4 @@ Fixes this particular bug in python 3.6 and above.
 
 ## Installation
 
-`pip install https://github.com/v1shwa/systemml-python.git`
+`pip install git+https://github.com/v1shwa/systemml-python.git`
