@@ -1,0 +1,24 @@
+Metadata-Version: 1.1
+Name: systemml
+Version: 1.2.0
+Summary: Apache SystemML is a distributed and declarative machine learning platform.
+Home-page: http://systemml.apache.org/
+Author: Apache SystemML
+Author-email: dev@systemml.apache.org
+License: Apache 2.0
+Description: 
+        
+            Apache SystemML provides declarative large-scale machine learning (ML) that aims at
+            flexible specification of ML algorithms and automatic generation of hybrid runtime
+            plans ranging from single-node, in-memory computations, to distributed computations on Apache
+            Hadoop and Apache Spark.
+            
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Topic :: Scientific/Engineering :: Mathematics
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Software Development :: Libraries
