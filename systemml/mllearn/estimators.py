@@ -25,6 +25,7 @@ import numpy as np
 from pyspark.ml import Estimator
 from pyspark.ml.feature import VectorAssembler
 from pyspark.sql import DataFrame
+import keras
 import sklearn as sk
 from sklearn.metrics import accuracy_score, r2_score
 from py4j.protocol import Py4JError
@@ -945,8 +946,8 @@ class Keras2DML(Caffe2DML):
                 keras_model.build()
             keras_model = keras_model.model
         self.name = keras_model.name
-        createJavaObject(sparkSession._sc, 'dummy')
-        if not hasattr(keras_model, 'optimizer'):
+
+        if not hasattr(keras_model, 'optimizer') or keras_model.optimizer == None:
             keras_model.compile(loss='categorical_crossentropy', optimizer=keras.optimizers.SGD(lr=0.01, momentum=0.95, decay=5e-4, nesterov=True))
         convertKerasToCaffeNetwork(keras_model, self.name + ".proto", int(batch_size))
         convertKerasToCaffeSolver(keras_model, self.name + ".proto", self.name + "_solver.proto", int(max_iter), int(test_iter), int(test_interval), int(display), lr_policy, weight_decay, regularization_type)

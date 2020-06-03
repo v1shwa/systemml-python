@@ -97,7 +97,7 @@ def toKV(key, value):
 	
 
 def _parseJSONObject(obj):
-	rootName = obj.keys()[0]
+	rootName = list(obj.keys())[0]
 	ret = ['\n', rootName, ' {']
 	for key in obj[rootName]:
 		if isinstance(obj[rootName][key], dict):
@@ -138,7 +138,7 @@ def _parseKerasLayer(layer):
 	elif layerType == keras.layers.Activation:
 		return [ _parseActivation(layer) ]
 	param = layerParamMapping[layerType](layer)
-	paramName = param.keys()[0]
+	paramName = list(param.keys())[0]
 	if layerType == keras.layers.InputLayer:
 		ret = { 'layer': { 'name':layer.name, 'type':'Data', paramName:param[paramName], 'top':layer.name, 'top':'label' } }
 	else:
