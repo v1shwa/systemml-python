@@ -24,7 +24,7 @@
 
 import numpy as np
 import os, math
-from itertools import chain, imap
+from itertools import chain, map as imap
 from ..converters import *
 from ..classloader import *
 import keras
