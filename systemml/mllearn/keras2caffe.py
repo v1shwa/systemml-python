@@ -24,7 +24,7 @@
 
 import numpy as np
 import os, math
-from itertools import chain, map as imap
+from itertools import chain
 from ..converters import *
 from ..classloader import *
 import keras
@@ -222,9 +222,9 @@ def _transformLayer(layer, batch_size):
 
 def _appendKerasLayers(fileHandle, kerasLayers, batch_size):
 	if len(kerasLayers) >= 1:
-		transformedLayers = list(chain.from_iterable(imap(lambda layer: _transformLayer(layer, batch_size), kerasLayers)))  
-		jsonLayers = list(chain.from_iterable(imap(lambda layer: _parseKerasLayer(layer), transformedLayers)))
-		parsedLayers = list(chain.from_iterable(imap(lambda layer: _parseJSONObject(layer), jsonLayers)))
+		transformedLayers = list(chain.from_iterable(map(lambda layer: _transformLayer(layer, batch_size), kerasLayers)))  
+		jsonLayers = list(chain.from_iterable(map(lambda layer: _parseKerasLayer(layer), transformedLayers)))
+		parsedLayers = list(chain.from_iterable(map(lambda layer: _parseJSONObject(layer), jsonLayers)))
 		fileHandle.write(''.join(parsedLayers))
 		fileHandle.write('\n')
 	
